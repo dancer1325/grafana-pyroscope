@@ -141,13 +141,18 @@ JFR ingestion support uses the profile metadata to determine which profile types
 * `cpu` samples, which includes only profiling data from runnable threads.
 * `itimer` samples, similar to `cpu` profiling.
 * `wall` samples, which includes samples from any threads independently of their state.
-* `alloc_in_new_tlab_objects`, which indicates the number of new TLAB objects created.
-* `alloc_in_new_tlab_bytes`, which indicates the size in bytes of new TLAB objects created.
-* `alloc_outside_tlab_objects`, which indicates the number of new allocated objects outside any TLAB.
-* `alloc_in_new_tlab_bytes`, which indicates the size in bytes of new allocated objects outside any TLAB.
+* `alloc_in_new_tlab_objects`
+  * == # of new TLAB objects created
+* `alloc_in_new_tlab_bytes`
+  * == size in bytes of new TLAB objects created
+* `alloc_outside_tlab_objects`
+  * == # of new allocated objects / outside any TLAB
+* `alloc_outside_tlab_bytes`
+  * == size in bytes of new allocated objects / outside any TLAB.
 
 #### JFR with labels
 
+* TODO:
 In order to ingest JFR data with dynamic labels, you have to make the following changes to your requests:
 * use an HTTP form (`multipart/form-data`) Content-Type.
 * send the JFR data in a form file field called `jfr`.

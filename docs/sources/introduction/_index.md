@@ -10,29 +10,30 @@ keywords:
 
 # Introduction
 
-Grafana Pyroscope is a multi-tenant continuous profiling aggregation system, aligning its architectural design with Grafana Mimir, Grafana Loki, and Grafana Tempo. It facilitates the ingestion, storage, and querying of profiles and seamlessly integrates with Grafana, enabling a cohesive correlation of profiling data with existing metrics, logs, and traces.
-
-Engineers using Pyroscope gain the ability to delve deep into the performance attributes and resource demands of their applications.
-Boasting an intuitive interface coupled with a vivid data visualization, Pyroscope transforms raw profiling data into readily actionable insights.
-
 {{< youtube id="XL2yTCPy2e0" >}}
 
 ## Why Pyroscope
 
-Continuous profiling helps teams to quickly identify performance bottlenecks and optimize their applications.
-With Grafana Pyroscope, teams can easily profile their applications in production with minimal overhead.
-Starting with system-wide observability and drilling down to actionable code-level insights allows teams to identify performance issues in context no matter where they occur, so they can optimize their applications with precision.
+* see [main index](../_index.md)
 
 ## Core functionality
 
-With Pyroscope, you get access to the core profiling functionality, which you can use to find performance bottlenecks and optimize applications. The core functionality includes:
-
-- Minimal CPU overhead and efficient compression ensure optimal performance.
-- Architecture consistent with Loki, Mimir, and Tempo, promoting a smoother user experience.
-    - Horizontally scalable:  You can run Grafana Pyroscope
-   across multiple machines. You can easily scale the database to handle the profiling volumes your workload generates.
-    - Reliable: Highly available setup ensures consistent uptime, even amidst upgrades or system failures.
-    - Multi-tenancy Support: makes it possible to run one database for multiple independent teams or business units.
-    - Cost Effective at Scale: Utilizes object storage, which allows extensive historical data storage without significant costs. It is compatible with multiple object store implementations, including AWS S3,
-  Google Cloud Storage, Azure Blob Storage, OpenStack Swift, as well as any S3-compatible object storage.
-- Advanced Analysis UI: Provides an advanced UI, high-cardinality tag/label handling, and the ability to differentiate performance between tags/labels and time intervals.
+* Minimal CPU overhead & efficient compression
+  * minimal CPU overhead
+    * == the process does NOT take up much of the CPU
+* Architecture -- aligned with -- Grafana Loki, Mimir, and Tempo ==
+    - Horizontally scalable
+      - == Grafana Pyroscope can run | MULTIPLE machines
+    - Reliable
+      - == HIGHLY available
+    - Multi-tenancy Support
+      - 👀== possible to run 1 database / MULTIPLE independent teams or business units 👀
+    - Cost Effective | Scale
+      - extensive historical data storage -- via -- object storage / NO significant costs
+      - -- compatible with -- MULTIPLE object store implementations
+        - _Example:_ AWS S3, Google Cloud Storage, Azure Blob Storage, OpenStack Swift, 
+* Advanced Analysis UI
+  * allowed adding tag/label
+  * ways to differentiate performance
+    * tags/labels
+    * time intervals

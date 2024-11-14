@@ -12,29 +12,51 @@
 
 ## 🎉 **Announcement: The new Explore Profiles UI is here!**
 
-We are thrilled to announce the launch of the **Explore Profiles UI**, a brand-new way to explore and analyze your profiling data—now available as part of the Grafana Explore Apps suite! This new app brings you a **queryless**, **intuitive** experience for visualizing your profiling data, simplifying the entire process without the need to write complex queries.
+* **Explore Profiles UI**
+  * allows
+    * visualizing your profiling data /
+      * **queryless**,
+      * **intuitive** experience
 
 https://github.com/user-attachments/assets/4db19ec7-86f3-4701-8f5f-9b7ffcebd49c
 
 ## What is Grafana Pyroscope?
 
-Grafana Pyroscope is a continuous profiling platform designed to surface performance insights from your applications, helping you optimize resource usage such as CPU, memory, and I/O operations. With Pyroscope, you can both **proactively** and **reactively** address performance bottlenecks across your system.
-
-The typical use cases are:
-
-- **Proactive:** Reducing resource consumption, improving application performance, or preventing latency issues.
-- **Reactive:** Quickly resolving incidents with line-level detail and debugging active CPU, memory, or I/O bottlenecks.
-
-Pyroscope provides powerful tools to give you a comprehensive view of your application's behavior while allowing you to drill down into specific services for more targeted root cause analysis.
+* Grafana Pyroscope
+  * == continuous profiling platform
+  * allows
+    * optimize resource usage (CPU, memory, and I/O operations)
+  * use cases
+    * **Proactive:**
+      * reducing resource consumption,
+      * improving application performance,
+      * preventing latency issues
+    * **Reactive:**
+      * quickly resolving incidents about bottlenecks in
+        * CPU,
+        * memory,
+        * I/O
 
 ## How Does Pyroscope Work?
 
 ![deployment_diagram](https://grafana.com/media/docs/pyroscope/pyroscope_client_server_diagram_09_18_2024.png)
 
-Pyroscope consists of three main components:
-- **Pyroscope Server:** The server component that stores and processes profiling data.
-- **Pyroscope SDKs(push) or Grafana alloy(pull) :** The client-side part of Pyroscope that collects profiling data from your applications and sends it to the server.
-- **Explore Profiles UI:** A queryless, intuitive UI for visualizing and analyzing profiling data.
+* Pyroscope
+  * == Pyroscope Server + Pyroscope SDKs(push) or Grafana alloy(pull) + Explore Profiles UI
+    * **Pyroscope Server**
+      * about profiling data,
+        * stores
+        * process 
+    * **Pyroscope SDKs(push) or Grafana alloy(pull)**
+      * == client-side part of Pyroscope
+      * what does it?
+        * collects profiling data -- from -- your applications
+        * data -- are sent to the -- server
+    * **Explore Profiles UI**
+      * UI
+        * analyze profiling data /
+          * queryless,
+          * intuitive
 
 ---
 
@@ -58,31 +80,31 @@ brew services start pyroscope
 docker run -it -p 4040:4040 grafana/pyroscope
 ```
 
-For more documentation on how to configure Pyroscope server, see [our server documentation](https://grafana.com/docs/pyroscope/latest/configure-server/).
+* see [our server documentation](https://grafana.com/docs/pyroscope/latest/configure-server/)
 
 ## **Quick Start: Run Explore Profiles UI in Grafana**
 
 <img width="1728" alt="image" src="https://github.com/user-attachments/assets/67691443-6450-45b9-8064-f41056c88ade">
 
 ### Grafana Cloud
-The app UI and server are both installed and running automatically -- just start sending data!
+* Pyroscope Server + Explore Profiles UI
+  * installed & running automatically
+    * -> ONLY start sending data!
 
 ### Grafana OSS
-You can run the Explore profiles UI in Grafana by installing the plugin from the [Grafana Plugin Directory](https://grafana.com/grafana/plugins/grafana-pyroscope-app/)
-
-For more information, check out the [Explore Profiles README](https://github.com/grafana/explore-profiles)
+* == run the Explore profiles UI | Grafana
+  * -- via -- installing the plugin | [Grafana Plugin Directory](https://grafana.com/grafana/plugins/grafana-pyroscope-app/)
+  * see [Explore Profiles README](https://github.com/grafana/explore-profiles)
 
 ## Documentation
-
-For more information on how to use Pyroscope with other programming languages, install it on Linux, or use it in production environment, check out our documentation:
 
 * [Getting Started](https://grafana.com/docs/pyroscope/latest/get-started/)
 * [Deployment Guide](https://grafana.com/docs/pyroscope/latest/deploy-kubernetes/)
 * [Pyroscope Architecture](https://grafana.com/docs/pyroscope/latest/reference-pyroscope-architecture/)
 
-## Send data to server via Pyroscope agent (language specific)
+## Send data to server -- via -- Pyroscope agent (language specific)
 
-For more documentation on how to add the Pyroscope agent to your code, see the [agent documentation](https://grafana.com/docs/pyroscope/latest/configure-client/) on our website or find language specific examples and documentation below:
+* see the [agent documentation](https://grafana.com/docs/pyroscope/latest/configure-client/) 
 <table>
    <tr>
       <td align="center"><a href="https://grafana.com/docs/pyroscope/latest/configure-client/language-sdks/go_push/"><img src="https://user-images.githubusercontent.com/23323466/178160549-2d69a325-56ec-4e19-bca7-d460d400b163.png" width="100px;" alt=""/><br />
@@ -132,9 +154,9 @@ For more documentation on how to add the Pyroscope agent to your code, see the [
 
 ## [Supported Languages][supported languages]
 
-Our documentation contains the most recent list of [supported languages] and also an overview over what [profiling types are supported per language][profile-types-languages].
-
-Let us know what other integrations you want to see in [our issues](https://github.com/grafana/pyroscope/issues?q=is%3Aissue+is%3Aopen+label%3Anew-profilers) or in [our slack](https://slack.grafana.com).
+* see
+  * [supported languages]
+  * [profiling types supported / language][profile-types-languages]
 
 [supported languages]: https://grafana.com/docs/pyroscope/latest/configure-client/
 [profile-types-languages]: https://grafana.com/docs/pyroscope/latest/configure-client/profile-types/
@@ -153,7 +175,7 @@ Pyroscope is possible thanks to the excellent work of many people, including but
 
 ## Contributing
 
-To start contributing, check out our [Contributing Guide](docs/internal/contributing/README.md)
+* see [Contributing Guide](docs/internal/contributing/README.md)
 
 
 ### Thanks to the contributors of Pyroscope!

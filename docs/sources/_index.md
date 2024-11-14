@@ -53,6 +53,7 @@ cards:
     * multi-tenant
     * architectural design == Grafana Mimir, Grafana Loki, and Grafana Tempo 's architectural design
       * Reason: 🧠profiling data -- can be cohesive correlated with -- existing metrics, logs, and traces 🧠
+    * raw profiling data -- are transformed into -- readily actionable insights
   * uses
     * gain insights about application performance
 

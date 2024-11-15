@@ -14,6 +14,8 @@ keywords:
 * Profiling
   * ⭐️:= technique / measure & analyze the runtime behavior of a program ⭐️
     * if you profile a program -> identify parts of the program / consume the MOST resources (CPU time, memory, or I/O operations)
+    * == ad-hoc debugging tool 
+      * _Example:_ | Go & Java
   * types
     * traditional
     * continuous

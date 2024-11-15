@@ -11,63 +11,83 @@ keywords:
 
 # Profiling fundamentals
 
-Profiling is a technique used in software development to measure and analyze the runtime behavior of a program.
-By profiling a program, developers can identify which parts of the program consume the most resources, such as CPU time, memory, or I/O operations.
-This information can then be used to optimize the program, making it run faster or use fewer resources.
+* Profiling
+  * ⭐️:= technique / measure & analyze the runtime behavior of a program ⭐️
+    * if you profile a program -> identify parts of the program / consume the MOST resources (CPU time, memory, or I/O operations)
+  * types
+    * traditional
+    * continuous
 
-Pyroscope can be used for both traditional and continuous profiling.
+* 👀Pyroscope allows addressing BOTH types of profiling 👀
 
 ## Traditional profiling (non-continuous)
 
-Traditional profiling, often referred to as "sample-based" or "instrumentation-based" profiling, has its roots in the early days of computing. Back then, the primary challenge was understanding how a program utilized the limited computational resources available.
-
-- **Sample-based profiling**: In this method, the profiler interrupts the program at regular intervals, capturing the program's state each time. By analyzing these snapshots, developers can deduce the frequency at which parts of the code execute.
-
-- **Instrumentation-based profiling**: Here, developers insert additional code into the program that records information about its execution. This approach provides detailed insights but can alter the program's behavior due to the added code overhead.
-
-### Benefits
-
-Traditional profiling provides:
-
-- **Precision**: Offers a deep dive into specific sections of the code.
-- **Control**: Developers can initiate profiling sessions at their discretion, allowing for targeted optimization efforts.
-- **Detailed reports**: Provides granular data about program execution, making it easier to pinpoint bottlenecks.
+* named as 
+  * "sample-based" 
+    * profiler interrupts the program | regular intervals / capture the program's state each time
+      * == take snapshots
+  * "instrumentation-based" profiling
+    * developers insert additional code | program / records information about its execution
+    * cons
+      * can alter the program's behavior -- due to the -- added code overhead 
+* origin
+  * early days of computing
+    * goal
+      * understand how a program -- utilized the -- limited computational resources available
+* benefits
+  * **Precision**
+    * deep dive specific sections of the code
+  * **Control**
+    * developers can initiate profiling sessions
+  * **Detailed reports**
+* use cases
+  * **When**
+    * development or testing phases
+  * **Advantages**
+    * detailed insights | specific parts of code
+  * **Disadvantages**
+    * snapshot | time
 
 ## Continuous profiling
 
-As software systems grew in complexity and scale, the limitations of traditional profiling became evident. Issues could arise in production that weren't apparent during limited profiling sessions in the development or staging environments.
+* vs traditional profiling
+  * | software systems more complex and scale
+    * Reason: 🧠 limitations of traditional profiling 🧠
+  * issues NOT notice -- through -- limited profiling sessions
 
-This led to the development of continuous profiling, a method where the profiling data is continuously collected in the background with minimal overhead. By doing so, developers gain a more comprehensive view of a program's behavior over time, helping to identify sporadic or long-term performance issues.
+* := profiling / data is continuously collected & minimal overhead
+  * helping to identify sporadic or long-term performance issues.
 
-### Benefits
+* benefits
+  * **Consistent monitoring**
+    * == expose 
+      * immediate issues
+      * long-term performance issues
+  * **Proactive bottleneck detection**
+    * performance bottlenecks are identified and addressed | BEFORE they
+  * **Broad performance landscape**
+    * available | different
+      * platforms,
+      * technology stack
+      * OS
+  * **Bridging the Dev-Prod gap**
+    * highlight possible differences between development and production
+      * Hardware discrepancies
+      * Software inconsistencies
+      * Real-world workload challenges
+        * == potential pitfalls | real user interactions and loads
+  * **Economical advantages**:
+    * Resource optimization
+    * Rapid problem resolution
+  * **Non-intrusive operation**
+  * **Real-time response**
 
-Continuous profiling provides:
-
-- **Consistent monitoring**: Unlike traditional methods that offer snapshots, continuous profiling maintains an uninterrupted view, exposing both immediate and long-term performance issues.
-- **Proactive bottleneck detection**: By consistently capturing data, performance bottlenecks are identified and addressed before they escalate, reducing system downtime and ensuring smoother operations.
-- **Broad performance landscape**: Provides insights across various platforms, from varied technology stacks to different operating systems, ensuring comprehensive coverage.
-- **Bridging the Dev-Prod gap**: Continuous profiling excels in highlighting differences between development and production:
-    - **Hardware discrepancies**: Unearths issues stemming from differences in machine specifications.
-    - **Software inconsistencies**: Sheds light on variations in software components that might affect performance.
-    - **Real-world workload challenges**: Highlights potential pitfalls when real user interactions and loads don't align with development simulations.
-- **Economical advantages**:
-    - **Resource optimization**: Continual monitoring ensures resources aren't wasted, leading to cost savings.
-    - **Rapid problem resolution**: Faster troubleshooting means reduced time and monetary investment in issue rectification, letting developers channel their efforts into productive endeavors.
-- **Non-intrusive operation**: Specifically designed to work quietly in the background, continuous profiling doesn't compromise the performance of live environments.
-7. **Real-time response**: It equips teams with the ability to act instantly, addressing issues as they arise rather than post-occurrence, which is crucial for maintaining high system availability.
-
-## How to choose between traditional and continuous profiling
-
-In many modern development workflows, both methods are useful.
-
-### Traditional profiling
-
-  - **When**: During development or testing phases.
-  - **Advantages**: Offers detailed insights that can target specific parts of code.
-  - **Disadvantages**: Higher overhead provides only a snapshot in time.
-
-### Continuous profiling
-
-  - **When**: In production environments or during extended performance tests.
-  - **Advantages**: Provides a continuous view of system performance, often with minimal overhead, making it suitable for live environments.
-  - **Disadvantages**: It might be less detailed than traditional profiling due to the need to minimize impact on the running system.
+* use cases
+  * **When**
+    * production environments or
+    * extended performance tests
+  * **Advantages**
+    * continuous view of system performance
+  * **Disadvantages**
+    * less detailed than traditional profiling
+      * Reason: 🧠need to minimize impact | running system 🧠

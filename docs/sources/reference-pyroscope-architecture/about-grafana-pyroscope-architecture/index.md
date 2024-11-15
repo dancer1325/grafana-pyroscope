@@ -10,19 +10,34 @@ aliases:
 
 # About the Pyroscope architecture
 
-Pyroscope has a microservices-based architecture.
-The system has multiple horizontally scalable microservices that can run separately and in parallel.
-Pyroscope microservices are called components.
-
-Pyroscope's design compiles the code for all components into a single binary.
-The `-target` parameter controls which component(s) that single binary will behave as. For those looking for a simple way to get started, Pyroscope can also be run in [monolithic mode]({{< relref "../deployment-modes/index.md#monolithic-mode" >}}), with all components running simultaneously in one process.
-For more information, refer to [Deployment modes]({{< relref "../deployment-modes/index.md" >}}).
+* microservices-based architecture /
+  * horizontally scalable
+  * microservices
+    * can run
+      * separately
+      * in parallel
+    * ALSO named components
+    * 👀ALL -- are compiled into -- 1! binary 👀
+      * Reason: 🧠 Pyroscope's design 🧠
+      * `-target`
+        * parameter / -- controls the -- behaviour of component(s) / make up the binary
+* run modes of Pyroscope
+  * see [Deployment modes]({{< relref "../deployment-modes/index.md" >}}).
 
 ## Pyroscope components
 
-Most components are stateless and do not require any data persisted between process restarts. Some components are stateful and rely on non-volatile storage to prevent data loss between process restarts. For details about each component, see its page in [Components]({{< relref "../components/_index.md" >}}).
+* MOST components
+  * stateless
+  * NOT require any data / persisted | process restarts
+* SOME components
+  * stateful
+  * rely on NON-volatile storage
+    * Reason: 🧠prevent data loss | process restarts 🧠
+* see [Components]({{< relref "../components/_index.md" >}})
 
 ### The write path
+
+* TODO: 
 
 [//]: # "To edit open with https://mermaid.live/edit#pako{...}"
 
@@ -61,7 +76,6 @@ The [query-scheduler]({{< relref "../components/query-scheduler" >}}) maintains 
 The [queriers]({{< relref "../components/querier" >}}) act as workers, pulling queries from the queue in the query-scheduler. The queriers connect to the ingesters to fetch all the data needed to execute a query. For more information about how the query is executed, refer to [querier]({{< relref "../components/querier.md" >}}).
 
 Depending on the time window selected, the querier involves [ingesters]({{< relref "../components/ingester" >}}) for recent data and [store-gateways]({{< relref "../components/store-gateway" >}}) for data from long-term storage.
-
 
 ## Long-term storage
 

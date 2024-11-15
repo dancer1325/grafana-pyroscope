@@ -42,31 +42,31 @@ keywords:
   * **Control**
     * developers can initiate profiling sessions
   * **Detailed reports**
+    * specific parts of code
+* disadvantages
+  * snapshot | time
 * use cases
-  * **When**
-    * development or testing phases
-  * **Advantages**
-    * detailed insights | specific parts of code
-  * **Disadvantages**
-    * snapshot | time
+  * development phase or
+  * testing phase
 
 ## Continuous profiling
 
-* vs traditional profiling
-  * | software systems more complex and scale
-    * Reason: 🧠 limitations of traditional profiling 🧠
-  * issues NOT notice -- through -- limited profiling sessions
-
 * := profiling / data is continuously collected & minimal overhead
   * helping to identify sporadic or long-term performance issues.
-
+  * vs traditional profiling
+    * | software systems more complex and scale
+      * Reason: 🧠 limitations of traditional profiling 🧠
+    * issues NOT notice -- through -- limited profiling sessions
+    * less detailed
+      * Reason: 🧠need to minimize impact | running system 🧠  
 * benefits
   * **Consistent monitoring**
     * == expose 
       * immediate issues
       * long-term performance issues
   * **Proactive bottleneck detection**
-    * performance bottlenecks are identified and addressed | BEFORE they
+    * performance bottlenecks are identified and addressed BEFORE -> reduced latency
+      * see [here](./continuous-profiling/_index.md#reduced-latency)
   * **Broad performance landscape**
     * available | different
       * platforms,
@@ -78,18 +78,16 @@ keywords:
       * Software inconsistencies
       * Real-world workload challenges
         * == potential pitfalls | real user interactions and loads
+  * **Complements other observability tools:**
+    * fills critical gaps / -- left by -- metrics, logs, and tracing
   * **Economical advantages**:
     * Resource optimization
+      * see [here](./continuous-profiling/_index.md#reduce-operational-costs)
     * Rapid problem resolution
   * **Non-intrusive operation**
   * **Real-time response**
+  * **continuous view of system performance**
 
 * use cases
-  * **When**
-    * production environments or
-    * extended performance tests
-  * **Advantages**
-    * continuous view of system performance
-  * **Disadvantages**
-    * less detailed than traditional profiling
-      * Reason: 🧠need to minimize impact | running system 🧠
+  * production environments or
+  * extended performance tests

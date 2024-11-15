@@ -7,16 +7,23 @@ weight: 20
 
 # Pyroscope server HTTP API
 
-Pyroscope server exposes an HTTP API for querying profiling data and ingesting profiling data from other sources.
+* Pyroscope server
+  * -- exposes an -- HTTP API /
+    * allows
+      * querying profiling data
+      * ingesting profiling data -- from -- OTHER sources
 
 ## Authentication
 
-Grafana Pyroscope doesn't include an authentication layer. Operators should use an authenticating reverse proxy for security.
+* Grafana Pyroscope
+  * 👀authentication layer NOT included 👀
+    * -> Operators -- should use an -- authenticating reverse proxy
 
-In multi-tenant mode, Pyroscope requires the X-Scope-OrgID HTTP header set to a string identifying the tenant. This responsibility should be handled by the authenticating reverse proxy. For more information, refer to the [multi-tenancy documentation]({{< relref "./about-tenant-ids" >}}).
+| multi-tenant mode, Pyroscope requires the HTTP header X-Scope-OrgID = string / identify the tenant This responsibility should be handled by the authenticating reverse proxy. For more information, refer to the [multi-tenancy documentation]({{< relref "./about-tenant-ids" >}}).
 
 ## Ingestion
 
+* TODO:
 There is one primary endpoint: POST /ingest. It accepts profile data in the request body and metadata as query parameters.
 
 The following query parameters are accepted:

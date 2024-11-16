@@ -11,76 +11,53 @@ weight: 250
 
 # Get started with Pyroscope
 
-Choose one of the following options to get started with Pyroscope:
-
-- The **written tutorial** below provides a series of imperative commands to start a single Pyroscope process, or [monolith]({{< relref "../reference-pyroscope-architecture/deployment-modes/index.md#monolithic-mode" >}}), which is designed for users getting started with the project.
-
-- You can also use [`docker-compose`](https://github.com/grafana/pyroscope/tree/main/tools/docker-compose) to declaratively deploy Pyroscope and Grafana.
-
-For more information on the different ways to deploy Pyroscope, see [Pyroscope deployment modes]({{< relref "../reference-pyroscope-architecture/deployment-modes/index.md" >}}).
+* goal
+  * start Pyroscope in [monolith mode](../reference-pyroscope-architecture/deployment-modes)
 
 {{< youtube id="XL2yTCPy2e0" >}}
 
-## Before you begin
+## requirements
 
-Verify that you have installed [Docker](https://docs.docker.com/engine/install/).
+* install [Docker](https://docs.docker.com/engine/install/)
 
 ## Download and configure Pyroscope
 
-1. Download Pyroscope.
-
-    You can use Docker or download a binary to install Pyroscope.
-
-    - To install with Docker, run the following command:
-
-      ```bash
-      docker pull grafana/pyroscope:latest
-        ```
-
-    - To use a local binary:
-
-      Download the appropriate [release asset](https://github.com/grafana/pyroscope/releases/latest) for your operating system and architecture and make it executable.
-
-      For example, for Linux with the AMD64 architecture:
-
-        ```bash
-      # Download Pyroscope v1.0.0 and unpack it to the current folder
-      curl -fL https://github.com/grafana/pyroscope/releases/download/v1.0.0/pyroscope_1.0.0_linux_amd64.tar.gz | tar xvz
-      ```
-
-1. Run Pyroscope.
-
-    In a terminal, run one of the following commands:
-
-      - Using Docker:
-
-        ```bash
-        docker network create pyroscope-demo
-        docker run --rm --name pyroscope --network=pyroscope-demo -p 4040:4040 grafana/pyroscope:latest
-        ```
-
-      - Using a local binary:
-
-        ```bash
-        ./pyroscope
-        ```
-
-1. Verify that Pyroscope is ready. Pyroscope listens on port `4040`.
+1. download
+   1. -- via -- docker
+       ```bash
+         docker pull grafana/pyroscope:latest
+       ```
+   2. -- via -- local binary
+       ```bash
+       # Download Pyroscope v1.0.0 and unpack it to the current folder
+       curl -fL https://github.com/grafana/pyroscope/releases/download/v1.0.0/pyroscope_1.0.0_linux_amd64.tar.gz | tar xvz
+       ```
+2. Run Pyroscope
+   1. -- via -- docker
+     ```bash
+     docker network create pyroscope-demo
+     docker run --rm --name pyroscope --network=pyroscope-demo -p 4040:4040 grafana/pyroscope:latest
+     # 4040   default port of Pyroscope
+     ```
+   2. -- via -- local binary
+     ```bash
+     ./pyroscope
+     ```
+3. Verify that Pyroscope is ready
 
       ```bash
       curl localhost:4040/ready
       ```
 
-1. Configure Pyroscope to scrape profiles.
+4. Configure Pyroscope -- to scrape -- profiles
+   1. by default, it's -- configured to scrape -- itself
+   2. if you want to collect more profiles -> instrument your application with
+      1. SDK or
+      2. Grafana Alloy
 
-    By default, Pyroscope is configured to scrape itself.
-    To collect more profiles, you must either instrument your application with an SDK or use Grafana Alloy.
+## Add a Pyroscope data source | Grafana & query data
 
-    To learn more about language integrations and the Pyroscope agent, refer to [Pyroscope Agent]({{< relref "../configure-client/_index.md" >}}).
-
-## Add a Pyroscope data source and query data
-
-1. In a terminal, run a local Grafana server using Docker:
+1. run a local Grafana server -- via -- Docker
 
     ```bash
     docker run --rm --name=grafana \
@@ -92,17 +69,15 @@ Verify that you have installed [Docker](https://docs.docker.com/engine/install/)
       -e "GF_AUTH_DISABLE_LOGIN_FORM=true" \
       grafana/grafana:main
     ```
-
-1. In a browser, go to the Grafana server at [http://localhost:3000/datasources](http://localhost:3000/datasources).
-
-1. Use the following settings to configure a Pyroscope data source to query the local Pyroscope server:
+2. open [http://localhost:3000/datasources](http://localhost:3000/datasources) | browser
+   1. == Grafana URL
+3. configure a Pyroscope data source / -- query the -- local Pyroscope server
 
    | Field | Value                                                                |
    | ----- | -------------------------------------------------------------------- |
    | Name  | Pyroscope                                                            |
    | URL   | [http://pyroscope:4040/](http://pyroscope:4040/) OR [http://host.docker.internal:4040/](http://host.docker.internal:4040/) if using Docker  |
 
-  To learn more about adding data sources, refer to [Add a data source](/docs/grafana/<GRAFANA_VERSION>/datasources/add-a-data-source/).
-
-When you have completed the tasks in this getting started guide, you can query profiles in [Grafana Explore](/docs/grafana/<GRAFANA_VERSION>/explore/)
-and create dashboard panels using the newly configured Pyroscope data source. For more information on working with dashboards with Grafana, refer to [Panels and visualizations](/docs/grafana/<GRAFANA_VERSION>/panels-visualizations/) in the Grafana documentation.
+* allows
+  * querying profiles | [Grafana Explore](/docs/grafana/<GRAFANA_VERSION>/explore/)
+  * create dashboard panels -- via the -- newly configured Pyroscope data source

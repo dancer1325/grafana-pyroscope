@@ -10,58 +10,61 @@ weight: 300
 
 # Configure the client to send profiles
 
-Pyroscope is a continuous profiling database that allows you to analyze the performance of your applications.
-When sending profiles to Pyroscope, you can choose between three methods:
-1. Auto-instrumentation using Grafana Alloy
-2. SDK instrumentation
-3. SDK instrumentation through Grafana Alloy
+* Pyroscope
+  * == continuous profiling database /
+    * allows
+      * analyze the performance of your applications
+    * ways to send profiles | Pyroscope
+      1. Auto-instrumentation -- via -- Grafana Alloy
+      2. SDK instrumentation
+      3. SDK instrumentation -- through -- Grafana Alloy
 
-This document explains these techniques and guide you when to choose each one.
+    ![Pyroscope agent server diagram](https://grafana.com/media/docs/pyroscope/pyroscope_client_server_diagram_09_18_2024.png)
 
-![Pyroscope agent server diagram](https://grafana.com/media/docs/pyroscope/pyroscope_client_server_diagram_09_18_2024.png)
+## auto-instrumentation -- via -- Grafana Alloy or Agent collectors
 
-## About auto-instrumentation with Grafana Alloy or Agent collectors
-
-You can send data from your application using Grafana Alloy (preferred) or Grafana Agent (legacy) collectors.
-Both collectors support profiling with eBPF, Java, and Golang in pull mode.
-
-[Grafana Alloy](https://grafana.com/docs/alloy/latest/) is a vendor-neutral distribution of the OpenTelemetry (OTel) Collector.
-Alloy uniquely combines the very best OSS observability signals in the community.
-Grafana Alloy uses configuration file written using River.
-
-Alloy is the recommended collector instead of Grafana Agent.
-New installations should use Alloy.
-
-{{< docs/shared lookup="agent-deprecation.md" source="alloy" version="next" >}}
-
-Alloy is a component that runs alongside your application and periodically gathers profiling data from it.
-This method is suitable when you want to collect profiles from applications without modifying their source code.
-This approach is simplified with the eBPF profiling option that doesn't necessitate pull or push mechanisms.
-
-Here's how it works:
-
-1. Install and configure the collector on the same machine or container where your application is running.
-2. The collector periodically retrieves your application's performance profiling data, regardless of the language or technology stack your application is using.
-3. The captured profiles are then sent to the Pyroscope server for storage and analysis.
-
-Using a collector provides a hassle-free option, especially when dealing with multiple applications or microservices, allowing you to centralize the profiling process without changing your application's codebase.
+* collectors
+  * send data from your application -- through them -- to Pyroscope
+  * allows
+    * 👀if you are using MULTIPLE applications or microservices -> you can centralize the profiling process / WITHOUT changing your application's codebase 👀
+* Grafana Alloy & Grafana Agent collectors
+  * support profiling / pull mode, with
+    * eBPF,
+    * Java,
+    * Golang
+* [Grafana Alloy](https://grafana.com/docs/alloy/latest/)
+  * 👀== vendor-neutral distribution of the OpenTelemetry (OTel) Collector 👀
+    * configurable -- via -- River file
+    * component / -- runs alongside -- your application
+  * recommended
+  * requirements
+    * install & configure the collector | SAME machine or container / run your application
+  * how does it work?
+    * periodically gathers profiling data -- from -- your application
+    * the captured profiles -- are then sent to the -- Pyroscope server | 
+      * store
+      * analyze 
+  * uses
+    * collect profiles -- from -- applications / NOT modify their source code
+  * eBPF profiling option
+    * NOT need pull or push mechanisms
 
 ## About instrumentation with Pyroscope SDKs
 
-Alternatively, Pyroscope SDKs offer you the ability to instrument your application directly for more precise profiling.
-Use the SDKs when you want complete control over the profiling process or when the application you are profiling is written in a language supported by the SDKs (for example, Java, Python, .NET, and others).
-
-Here's how to use Pyroscope SDKs:
-
-1. Install the relevant Pyroscope SDK for your application's programming language (for example, `pip` package, `npm` package, Ruby gem).
-2. Instrument your application's code using the SDK to capture the necessary profiling data.
-3. SDK automatically periodically pushes the captured profiles to the Pyroscope server for storage and analysis.
-
-By using the Pyroscope SDKs, you have the flexibility to customize the profiling process according to your application's specific requirements.
-You can selectively profile specific sections of code or send profiles at different intervals, depending on your needs.
+* Pyroscope SDKs
+  * uses
+    * MORE precise & customizable profiling
+  * requirements to use it
+    * application / you are profiling is written | language / -- supported by the -- SDKs (for example, Java, Python, .NET, and others)
+  * how to use it?
+    * install the relevant Pyroscope SDK
+    * instrument your application's code -- via the SDK, to capture the -- necessary profiling data
+    * SDK automatically periodically -- pushes the -- captured profiles | Pyroscope server
+      * Reason: 🧠for storage and analysis 🧠
 
 ## About instrumentation with Pyroscope SDKs through Alloy
 
+* TODO:
 Pyroscope SDKs can be configured to send profiles to Grafana Alloy first, which then forwards them to the Pyroscope server. This method combines the flexibility of SDK instrumentation with Alloy's infrastructure benefits.
 
 Here's how it works:

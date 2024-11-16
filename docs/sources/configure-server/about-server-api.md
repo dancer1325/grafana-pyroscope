@@ -136,8 +136,12 @@ This configuration allows for customized visualization and analysis of various p
 
 ### JFR format
 
-This is the [Java Flight Recorder](https://openjdk.java.net/jeps/328) format, typically used by JVM-based profilers, also supported by our Java integration.
+* == [Java Flight Recorder](https://openjdk.java.net/jeps/328) format
+  * uses
+    * by JVM-based profilers,
+    * by our Java integration
 
+* TODO:
 When this format is used, some of the query parameters behave slightly different:
 * `format` should be set to `jfr`.
 * `name` contains the _prefix_ of the application name. Since a single request may contain multiple profile types, the final application name is created concatenating this prefix and the profile type. For example, if you send cpu profiling data and set `name` to `my-app{}`, it will appear in pyroscope as `my-app.cpu{}`.
